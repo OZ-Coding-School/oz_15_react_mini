@@ -1,0 +1,48 @@
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    padding: 15px 20px;
+    color: white;
+    gap: 20px;
+
+    h2 {
+        margin: 0;
+        font-size: 22px;
+        white-space: nowrap; // 줄바꿈 방지
+    }
+
+    .search-input {
+        flex: 1;
+        max-width: 300px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        background: #222;
+        color: white;
+        font-size: 14px;
+    }
+
+    .nav-buttons {
+        display: flex;
+        gap: 10px;
+
+        button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #6c5ce7;
+            color: white;
+            font-weight: bold;
+            transition: 0.2s;
+
+            &:hover {
+                background: #a29bfe;
+            }
+        }
+    }
+}
