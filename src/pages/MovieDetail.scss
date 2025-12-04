@@ -1,0 +1,57 @@
+.detail-container {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.detail-poster {
+    width: 350px;
+    border-radius: 10px;
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+}
+
+.title-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.detail-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.detail-rating {
+    background: #ffe599;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.detail-genre {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.genre-tag {
+    background: #eee;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.detail-overview {
+    margin-top: 10px;
+    line-height: 1.6;
+    font-size: 15px;
+    color: #444;
+}
