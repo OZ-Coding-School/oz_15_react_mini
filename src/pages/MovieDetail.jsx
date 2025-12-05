@@ -7,8 +7,6 @@ export default function MovieDetail() {
 
     const [movie, setMovie] = useState(null);  /* 3 */
     const [loading, setLoading] = useState(true);  /* 도전과제 추가 */
-<<<<<<< HEAD
-=======
 
     console.log("TOKEN:", import.meta.env.VITE_TMDB_ACCESS_TOKEN);
 
@@ -40,7 +38,7 @@ export default function MovieDetail() {
 
     if (loading) return <h2>⏳ 영화 정보를 불러오는 중...</h2>;  /*  7  */
     if (!movie) return <h2>❌ 영화 정보를 불러올 수 없습니다.</h2>;
->>>>>>> 8384b0b6e75bdbd4523edaefe3b9764d9903992b
+
 
     console.log("TOKEN:", import.meta.env.VITE_TMDB_ACCESS_TOKEN);
 
