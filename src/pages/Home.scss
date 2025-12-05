@@ -1,13 +1,31 @@
 .home {
-    padding: 10px;
+    padding: 20px;
 }
 
-.home h1 {
-    margin: 10px 0 20px 0;
-    font-size: 28px;
-    font-weight: bold;
+.skeleton-grid {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.movie-grid {
-    display: none;
+.skeleton-card {
+    width: 200px;
+    height: 300px;
+    background: #ddd;
+    border-radius: 10px;
+    animation: skeleton-loading 1.5s infinite ease-in-out;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
 }

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";  /* 1 */
 import MovieCard from "../components/MovieCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -6,7 +7,39 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Home.scss";
 
-export default function Home({ movies }) {
+export default function Home() {
+    const [movies, setMovies] = useState([]); /* 1 */
+    const [loading, setLoading] = useState(true); 
+
+    useEffect(() => { /* 2 */
+        const fetchMovieData = async () => { /* 3 */
+            try {
+                const response = await fetch(  /* 3 */
+                    "https://api.themoviedb.org/3/movie/popular?language=ko",
+                    {
+                        headers: {
+                            accept: "application/json",
+                            Authorization: `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`, /* 4 */
+                        },
+                    }
+                );  
+
+                const data = await response.json();  /* 5 */
+
+                const filteredMovies = data.results.filter(movie => !movie.adult);  /*  adult=false만 필터링  */
+
+                setMovies(filteredMovies); /* 6 */
+                setLoading(false); /* */
+            } catch (error) {
+                console.error("❌ 영화 목록 로딩 실패:", error);
+            }
+        };
+fetchMovieData();
+    }, []);
+
+    /* 로딩중 */
+    if (loading) return <h2>⏳ 인기 영화 불러오는 중...</h2>;
+
     return (
         <div className="home">
             <h1>🎬 Movie List</h1>
@@ -18,7 +51,7 @@ export default function Home({ movies }) {
                 navigation
                 pagination={{ clickable: true }}
             >
-                {movies.map((movie) => (
+                {movies.map((movie) => (  /* 8 */
                     <SwiperSlide key={movie.id}>
                         <MovieCard
                             id={movie.id}
@@ -32,7 +65,4 @@ export default function Home({ movies }) {
         </div>
     );
 }
-
-
-
 
