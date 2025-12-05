@@ -2,13 +2,16 @@ import { Link } from "react-router-dom";
 import React from "react";
 const Image_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
-function MovieCard({ title, posterPath, rating }) {
-  const posterUrl = Image_BASE_URL + posterPath;
+function MovieCard({ id, title, posterPath, rating }) {
+  const posterUrl = posterPath
+    ? `${Image_BASE_URL}${posterPath}`
+    : "https://via.placeholder.com/500x750?text=No+Image";
+
   const formattedRating =
     typeof rating === "number" ? rating.toFixed(1) : rating;
 
   return (
-    <Link to="/details" className="block cursor-pointer">
+    <Link to={`/details/${id}`} className="block cursor-pointer">
       <article className="flex flex-col bg-slate-900 rounded-md overflow-hidden shadow-md hover:-translate-y-1 hover:shadow-xl transition-transform">
         {/*포스터 부분 */}
         <div className="relative w-full aspect-2/3 bg-slate-700">
