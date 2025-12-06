@@ -1,24 +1,26 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import movieList from "./data/movieListData.json";
-import movieDetail from "./data/movieDetailData.json";
+import { Suspense, lazy } from "react";
 
-import Layout from "./layout/Layout";
-import Home from "./pages/Home";
-import MovieDetail from "./pages/MovieDetail";
+// 🔥 lazy 로딩 적용
+const Layout = lazy(() => import("./layout/Layout"));
+const Home = lazy(() => import("./pages/Home"));
+const MovieDetail = lazy(() => import("./pages/MovieDetail"));
 
 export default function App() {
-  const [movies] = useState(movieList.results);
-  const [movieDetails] = useState(movieDetail);
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home movies={movies} />} />
-        <Route path="detail" element={<MovieDetail movie={movieDetails} />} />
-      </Route>
-    </Routes>
+    <Suspense fallback={<h2>📦 페이지 불러오는 중...</h2>}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/movie/:id" element={<MovieDetail />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
+
+
+
 
 
 
