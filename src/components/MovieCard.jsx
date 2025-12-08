@@ -5,14 +5,16 @@ const MovieCard = ({ id, poster, title, rating }) => {
 
   return (
     <>
-      <div className=" w-[150px] h-[300px] border border-[1px solid black] ">
+      <div className=" w-[180px] h-[300px] border border-[1px solid black] rounded-2xl">
         <Link to={`/detail/${id}`}>
-          <img src={imageUrl} alt={title} className="h-[80%]" />
-          <hr />
-          <div>
-            <p className="text-sm">{title}</p>
-            <hr />
-            <p className="text-sm">평점 : {rating}</p>
+          <p className="absolute text-sm  w-[50px] rounded-[10px] bg-black text-white m-1 ">
+            ⭐{Math.floor(rating * 10) / 10}
+          </p>
+          <img src={imageUrl} alt={title} className="h-[90%] rounded-t-2xl" />
+          <div className="overflow-hidden h-[10%] bg-gray-400 rounded-b-2xl">
+            <p className="text-sm whitespace-nowrap overflow-hidden text-ellipsis text-center pt-1">
+              <strong> {title}</strong>
+            </p>
           </div>
         </Link>
       </div>
