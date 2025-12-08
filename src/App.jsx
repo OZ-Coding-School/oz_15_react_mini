@@ -7,7 +7,7 @@ import { lazy, Suspense } from "react";
 
 const HomePage = lazy(() => import("./pages/Home"));
 const Layout = lazy(() => import("./common/Layout"));
-const MovieDetail = lazy(() => import("./components/MovieDetail"));
+const MovieDetail = lazy(() => import("./pages/MovieDetail"));
 
 function App() {
   return (
