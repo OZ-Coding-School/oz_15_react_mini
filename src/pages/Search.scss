@@ -1,0 +1,28 @@
+.search-page {
+  padding: 40px;
+  color: #c7afff;
+  text-align: center;
+}
+
+.search-title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ff3fbf;
+  text-shadow: 0 0 10px rgba(255, 63, 191, 0.8);
+}
+
+.no-result {
+  font-size: 18px;
+  color: #b15fff;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+.movie-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  padding: 0 10px;
+}
