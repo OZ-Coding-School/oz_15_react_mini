@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@plugin 'tailwind-scrollbar';
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
