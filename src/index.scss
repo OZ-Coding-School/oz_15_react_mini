@@ -36,15 +36,6 @@ body {
     color: #222;
   }
   
-
-  .nav-logo-img {
-    width: 80px;                         //로고 이미지 너비
-    height: 50px;                        // 높이
-    border-radius: 10%;                  //모서리 둥글게
-    object-fit: contain;                 //이미지 비율 유지
-     object-position: center;            
-    display: block;                      // 이미지 주변 불필요한 여백 제거
-  }
   
   .nav-title {
     font-weight: 700;                     // 로고옆 타이틀
@@ -124,7 +115,90 @@ body {
       color: #3f51b5;
     }
   }
-   
+   .nav-logo-img {
+    width: 80px;                         //로고 이미지 너비
+    height: 50px;                        // 높이
+    border-radius: 10%;                  //모서리 둥글게
+    object-fit: contain;                 //이미지 비율 유지
+     object-position: center;            
+    display: block;                      // 이미지 주변 불필요한 여백 제거
+  }
+
+  .nav-user-thumb-btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-user-thumb {
+  width: 32px;        // 썸네일 가로
+  height: 32px;       // 썸네일 세로
+  border-radius: 50%; // 동그랗게
+  object-fit: cover;  // 잘리더라도 꽉 채우기
+  display: block;
+}
+
+.nav-user {
+  position: relative;   // 드롭다운 위치 기준
+}
+
+.nav-user-thumb-btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-user-thumb {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+
+}
+
+/* 드롭다운 메뉴 전체 박스 */
+.nav-user-menu {
+  position: absolute;
+  right: 0;
+  top: 40px;                 // 썸네일 아래로 살짝 내려오게
+  min-width: 140px;
+  background: $card-bg;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px $shadow-strong;
+  padding: 6px 0;
+  z-index: 1000;
+}
+
+/* 메뉴 안의 각 아이템 (링크/버튼 공통 스타일) */
+.nav-user-menu-item {
+  width: 100%;
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  text-align: left;
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* 로그아웃 버튼만 색 살짝 강조 */
+.nav-user-menu-item.logout {
+  color: #ff6b6b;
+
+  &:hover {
+    background: rgba(255, 107, 107, 0.15);
+  }
+}
 
 // App
 main {
@@ -218,6 +292,97 @@ main {
   }
  }
 
+.auth-page {
+  min-height: calc(100vh - 60px); // 대략 NavBar 제외 높이
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: $card-bg;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 16px $shadow-strong;
+  color: #fff;
+}
+
+.auth-title {
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-label {
+  font-size: 14px;
+}
+
+.form-input {
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-input.has-error {
+  border-color: #ff4d4f;
+}
+
+.form-error {
+  font-size: 12px;
+  color: #ff4d4f;
+  margin: 0;
+}
+
+.auth-submit-btn {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  background: #3f51b5;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    background: #303f9f;
+  }
+}
+
+.auth-bottom-row {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;  // 왼쪽 끝 / 오른쪽 끝
+  align-items: center;
+  font-size: 14px;
+  color: #fff;
+}
+
+.auth-signup-link {
+  color: #3f51b5;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
 @media (max-width: 768px) {
   .nav {
     flex-direction: column;
@@ -252,6 +417,9 @@ main {
   .nav-auth {
     margin-bottom: 0;
   }
+
+
+  
 
   main {
     padding: 12px;

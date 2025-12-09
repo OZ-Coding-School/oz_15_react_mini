@@ -4,6 +4,7 @@ import './index.scss'
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Grid } from "swiper/modules";
+import { useSupabaseAuth } from "./supabase"; 
 import "swiper/css";
 import "swiper/css/navigation";
 import { useOutletContext } from "react-router-dom";  //Layout에서 contextAPI로 넘겨받음
@@ -14,11 +15,23 @@ export default function App() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const { getUserInfo } = useSupabaseAuth();
+
   const { searchQuery = "" } = useOutletContext() || {};
 //NavBar에서 입력할때마다 바뀌는 값
-
-
 const [ debouncedQuery, setDebouncedQuery ] = useState("");
+
+useEffect(() => {
+    async function fetchUser() {
+      try {
+        await getUserInfo(); // LocalStorage에 userInfo 저장됨
+      } catch (err) {
+        console.error("유저 정보 가져오기 실패:", err);
+      }
+    }
+    fetchUser();
+  }, [getUserInfo]);
+
   
   useEffect(() => {
     const handler = setTimeout(() => {
