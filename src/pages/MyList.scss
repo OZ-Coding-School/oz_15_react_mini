@@ -1,0 +1,56 @@
+.mylist-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  min-height: 70vh; 
+  position: relative;
+}
+
+.mylist-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mylist-card {
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.8);
+    z-index: 10;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+    height: 300px;
+    object-fit: cover;
+    transition: border-radius 0.3s ease-in-out;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin: 10px 0 5px;
+    color: white;
+  }
+}
+
+.empty-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; 
+  font-size: 1.5rem;
+  color: #ccc;
+  text-align: center;
+}

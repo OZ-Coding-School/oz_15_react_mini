@@ -1,0 +1,120 @@
+.movie-detail {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+  align-items: flex-start;
+  background-color: rgb(24, 24, 24);
+  color: white;
+
+  .poster {
+    flex: 0 0 300px;
+    height: 450px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+
+  .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      .title-and-like {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        h2 {
+          margin: 0;
+          font-size: 2rem;
+          color: white;
+        }
+      }
+
+      .rating {
+        font-size: 1.2rem;
+        color: rgb(220, 220, 220);
+        white-space: nowrap;
+      }
+    }
+
+    .genres {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+
+      .genre-tag {
+        background: rgb(51, 51, 51);
+        color: rgb(221, 221, 221);
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+      }
+    }
+
+    .overview-title {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .overview {
+      background: rgb(40, 40, 40);
+      color: rgb(204, 204, 204);
+      padding: 15px;
+      border-radius: 10px;
+      line-height: 1.6;
+    }
+  }
+}
+
+.loading-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(200, 200, 200);
+}
+
+.add-mylist {
+  width: 38px;
+  height: 38px;
+  background-color: #e50914;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease, transform 0.15s ease;
+
+  img {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+    filter: invert(100%); // 기본 흰색
+  }
+
+  &:hover {
+    background-color: #f6121d;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.92);
+  }
+
+  &.liked img {
+    filter: invert(27%) sepia(88%) saturate(5763%) hue-rotate(356deg) brightness(96%) contrast(97%);
+  }
+}
