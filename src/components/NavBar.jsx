@@ -5,7 +5,9 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import useDebounce from "../hooks/useDebounce";
+import NavButton from "./NavButton";
 
 function NavBar() {
   const [searchText, setSearchText] = useState("");
@@ -13,6 +15,8 @@ function NavBar() {
   const debouncedSearchText = useDebounce(searchText, 200);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const{user, signOut} = useAuth();
 
   useEffect(() => {
     const initialQuery = searchParams.get("query") || "";
@@ -30,6 +34,11 @@ function NavBar() {
   const handleLogoClick = () => {
     setSearchText("");
     setSearchParams({});
+    navigate("/");
+  };
+
+  const handleLogout = async () => {
+    await signOut();
     navigate("/");
   };
 
@@ -59,8 +68,23 @@ function NavBar() {
       </div>
 
       <div className="nav_buttons">
-        <button className="nav_login-btn">로그인</button>
-        <button className="nav_signup-btn">회원가입</button>
+        {!user ? (
+          <>
+            <NavButton to="/login" className="nav_login-btn">
+            로그인
+            </NavButton>
+            <NavButton to="/signup" className="nav_signup-btn">
+            회원가입
+            </NavButton>
+          </>
+        ) : (
+          <div className="flex items-center gap-2">
+            <span className="text-xs">{user.email}</span>
+            <button onClick={handleLogout} className="nav_signup-btn">
+            로그아웃
+            </button>
+          </div>
+        )}
       </div>
     </nav>
   );
