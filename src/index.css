@@ -1,51 +1,45 @@
+@font-face {
+  font-family: "Gaegu";
+  src: url("/src/assets/fonts/Gaegu-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Gaegu-Bold";
+  src: url("/src/assets/fonts/Gaegu-Bold.ttf");
+}
+
+@font-face {
+  font-family: "mochi-boom-demo.regular";
+  src: url("/src/assets/fonts/mochi-boom-demo.regular.ttf");
+}
+
+@font-face {
+  font-family: "ShootingStar";
+  src: url("/src/assets/fonts/Shooting Star.ttf");
+}
+
+/* 🎀 Kuromi Theme Variables */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --kuromi-bg: #1a102d;
+  --kuromi-card: rgba(34, 0, 63, 0.7);
+  --kuromi-black: #0b0614;
 
-  color-scheme: light dark;
-  color: #213547;
-  background-color: #ffffff;
+  --kuromi-purple: #7d2ae8;
+  --kuromi-purple-light: #b15fff;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --kuromi-pink: #ff9df2;
+
+  --kuromi-glass: rgba(255,255,255,0.12);
+  --kuromi-border: rgba(255,255,255,0.2);
+
+  --kuromi-star: #ffd447;
+  --kuromi-text: #ffffff;
 }
 
 body {
+  background-color: var(--kuromi-bg);
+  color: var(--kuromi-text);
   margin: 0;
-  width: 100%;
-  min-height: 100vh;
+  font-family: "Gaegu", sans-serif; 
 }
 
-/* 기본 스타일 정리 */
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
-h1 {
-  font-size: 2rem;
-  line-height: 1.2;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}

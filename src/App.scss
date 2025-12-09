@@ -1,4 +1,13 @@
-.app {
-    max-width: 1200px;
-    margin: auto;
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #dbc4ff, #fff);
+  font-family: "Jua", sans-serif;
+  color: #2a2350;
+}
+
+h1, h2, h3 {
+  margin: 0;
 }
