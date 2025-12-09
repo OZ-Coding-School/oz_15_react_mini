@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import useDebounce from "../Customhook/debounce";
-import options from "../constants";
+import loginImg from "../img/login.png";
 import SearchMovieCard from "../components/SearchMovieCard";
 import { Link } from "react-router-dom";
+import { options } from "../constants";
 
-const NavBar = () => {
+const NavBar = ({ isLogin, setIsLogin }) => {
   const [searchDebounced, setSearchDebounced] = useState("");
   const debounced = useDebounce(searchDebounced, 300);
 
   const [searchResults, setSearchResults] = useState([]);
 
   const [loading, setLoading] = useState(false);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (!debounced) {
@@ -37,7 +40,7 @@ const NavBar = () => {
   const searchInputChange = (event) => {
     setSearchDebounced(event.target.value);
   };
-
+  console.log(searchResults);
   return (
     <nav className="bg-gray-800 p-4 relative ">
       <div className="container  mx-auto  flex flex-col md:flex-row xl:flex-row justify-between items-center">
@@ -73,14 +76,45 @@ const NavBar = () => {
             </div>
           )}
         </div>
-
         <div className="flex w-[250px] justify-between">
-          <button className="text-white bg-purple-800 rounded-[5px] w-30 h-10">
-            로그인
-          </button>
-          <button className="text-white bg-purple-800 rounded-[5px] w-30 h-10 ">
-            회원가입
-          </button>
+          {!isLogin ? (
+            <>
+              <Link to={"/login"}>
+                <button className="text-white bg-purple-800 rounded-[5px] w-30 h-10">
+                  로그인
+                </button>
+              </Link>
+              <Link to={"/signup"}>
+                <button className="text-white bg-purple-800 rounded-[5px] w-30 h-10 ">
+                  회원가입
+                </button>
+              </Link>
+            </>
+          ) : (
+            <div className="relative">
+              <img
+                src={loginImg}
+                alt="profile"
+                className="w-10 h-10 rounded-full "
+                onClick={() => setIsOpen((prev) => !prev)}
+              />
+
+              {isOpen && (
+                <div className="absolute z-30 right-0 mt-2 bg-white shadow-lg p-2 rounded-lg w-32">
+                  <div className="p-2 hover:bg-gray-100 ">마이페이지</div>
+                  <div
+                    className="p-2 hover:bg-gray-100 text-red-500 "
+                    onClick={() => {
+                      setIsLogin(false);
+                      setIsOpen(false);
+                    }}
+                  >
+                    로그아웃
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </nav>

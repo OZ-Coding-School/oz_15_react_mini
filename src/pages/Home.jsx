@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
-import options from "../constants";
+import { options } from "../constants";
 
 function HomePage() {
   const [movies, setMovies] = useState([]);

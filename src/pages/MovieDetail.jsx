@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import options from "../constants";
+import { options } from "../constants";
 
 const MovieDetail = () => {
   const { movie_Id } = useParams();
