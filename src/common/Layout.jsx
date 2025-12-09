@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 
-const Layout = () => {
+const Layout = ({ isLogin, setIsLogin }) => {
   return (
     <div className="flex flex-col">
-      <NavBar />
+      <NavBar isLogin={isLogin} setIsLogin={setIsLogin} />
       <main className="grow">
         <Outlet />
       </main>
